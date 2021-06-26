@@ -1,7 +1,14 @@
+import { NextPage } from "next";
 import React from "react";
+import styled from "styled-components";
 
-const index: React.FC = () => {
-  return <div>hello world</div>;
+const Container = styled.div`
+  font-size: 21px;
+  color: gray;
+`;
+
+const index: NextPage = () => {
+  return <Container>hello world</Container>;
 };
 
 export default index;
