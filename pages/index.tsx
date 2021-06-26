@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import React from "react";
 import styled from "styled-components";
 
@@ -7,7 +6,7 @@ const Container = styled.div`
   color: gray;
 `;
 
-const index: NextPage = () => {
+const index: React.FC = () => {
   return <Container>hello world</Container>;
 };
 
