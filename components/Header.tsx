@@ -4,6 +4,9 @@ import Link from "next/link";
 import AirbnbLogoIcon from "../public/static/svg/logo/logo.svg";
 import AirbnbLogoTextIcon from "../public/static/svg/logo/logo_text.svg";
 import palette from "../styles/palette";
+import ModalPortal from "./ModalPortal";
+import SignUpModal from "./auth/SignUpModal";
+import useModal from "../hooks/useModal";
 
 const Container = styled.div`
   position: sticky;
@@ -81,7 +84,10 @@ const Container = styled.div`
 
 const Header: React.FC = () => {
   /** 모달을 열고 닫을 값 */
-  const [modalOpened, setModalOpened] = useState(false);
+  //const [modalOpened, setModalOpened] = useState(false);
+
+  /** 모달 훅스 이용 */
+  const { openModal, ModalPortal } = useModal();
 
   return (
     <Container>
@@ -92,27 +98,17 @@ const Header: React.FC = () => {
         </div>
       </Link>
       <div className="header-auth-buttons">
-        <button
-          type="button"
-          className="header-sign-up-button"
-          onClick={() => setModalOpened(true)}
-        >
+        <button type="button" className="header-sign-up-button" onClick={openModal}>
           회원가입
         </button>
         <button type="button" className="header-login-button">
           로그인
         </button>
       </div>
-      {modalOpened && (
-        <div className="modal-wrapper">
-          <div
-            className="modal-background"
-            role="presentation"
-            onClick={() => setModalOpened(false)}
-          />
-          <div className="modal-contents" />
-        </div>
-      )}
+
+      <ModalPortal>
+        <SignUpModal />
+      </ModalPortal>
     </Container>
   );
 };
