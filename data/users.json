@@ -1,11 +1,1 @@
-[
-  {
-    "id": 1,
-    "email": "jerrynim@bnb.com",
-    "firstname": "님",
-    "lastname": "제리",
-    "password": "$2a$08$6irbcQUCpxpKD14vmaeAIOkIa5mMBeVHkaIntPWzVCw9G39DZp9pq",
-    "birthday": "2017-02-02T15:00:00.000Z",
-    "profileImage": "/static/image/user/default_user_profile_image.jpg"
-  }
-]
+[{"id":1,"email":"jerrynim@bnb.com","firstname":"님","lastname":"제리","password":"$2a$08$6irbcQUCpxpKD14vmaeAIOkIa5mMBeVHkaIntPWzVCw9G39DZp9pq","birthday":"2017-02-02T15:00:00.000Z","profileImage":"/static/image/user/default_user_profile_image.jpg"},{"id":2,"email":"mrarchi1106@naver.com","firstname":"son","lastname":"day","password":"$2a$08$6uDhSzNQ.m3VLMId0H6OEO0ib2b.p6QDvUf8oMsG5QtV61Y69E1TC","birthday":"1961-08-15T15:00:00.000Z","profileImage":"/static/image/user/default_user_profile_image.jpg"},{"id":3,"email":"mrarchi1106@naver.com","firstname":"son","lastname":"day","password":"$2a$08$FiaTMRJiHLCkEQDKZFotTeYLtozWbm7AwZmC/xISftXZddrVG9yXG","birthday":"1961-08-15T15:00:00.000Z","profileImage":"/static/image/user/default_user_profile_image.jpg"}]
