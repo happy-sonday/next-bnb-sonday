@@ -25,5 +25,23 @@
     "password": "$2a$08$gm0sQQ5MlvP9Bggv3H1xXedNt/3.Ssq3DGIIzU1YuMdNKnsp1j8gy",
     "birthday": "1989-11-05T15:00:00.000Z",
     "profileImage": "/static/image/user/default_user_profile_image.jpg"
+  },
+  {
+    "id": 4,
+    "email": "naver@naver.com",
+    "firstname": "valid",
+    "lastname": "in",
+    "password": "$2a$08$XgUHbeuSPG.r2GZrbq3aFexmlG/u/P3aJ7U8qHLBUOQCJUHESAOKq",
+    "birthday": "1922-12-20T00:00:00.000Z",
+    "profileImage": "/static/image/user/default_user_profile_image.jpg"
+  },
+  {
+    "id": 5,
+    "email": "inavalidemail@kakao.com",
+    "firstname": "hong",
+    "lastname": "kealdong",
+    "password": "$2a$08$Ort1C3A/J3z766Q65RuTWebl0cocGPqDA1m1BxSuVqIidY25hOLJS",
+    "birthday": "1920-03-19T15:00:00.000Z",
+    "profileImage": "/static/image/user/default_user_profile_image.jpg"
   }
 ]

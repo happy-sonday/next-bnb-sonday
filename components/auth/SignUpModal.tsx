@@ -124,6 +124,14 @@ const SignUpModal: React.FC = () => {
   const onSubmitSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    //NOTE:안되는데..
+    //setValidteMode(true);
+
+    if (!email || !lastname || !firstname || !password) {
+      console.log("회원가입 api 호출 불가");
+      return;
+    }
+
     try {
       const signUpBody = {
         email,
@@ -153,6 +161,10 @@ const SignUpModal: React.FC = () => {
           icon={<MailIcon />}
           value={email}
           onChange={onChangeEmail}
+          validateMode
+          useValidation
+          isValid={!!email}
+          errorMessage="이메일이 필요합니다."
         />
       </div>
       <div className="input-wrapper">
@@ -161,6 +173,10 @@ const SignUpModal: React.FC = () => {
           icon={<PersonIcon />}
           value={lastname}
           onChange={onChangeLastname}
+          validateMode
+          useValidation
+          isValid={!!lastname}
+          errorMessage="이름을 입력하세요."
         />
       </div>
       <div className="input-wrapper">
@@ -169,6 +185,10 @@ const SignUpModal: React.FC = () => {
           icon={<PersonIcon />}
           value={firstname}
           onChange={onChangeFirstname}
+          validateMode
+          useValidation
+          isValid={!!firstname}
+          errorMessage="성을 입력하세요."
         />
       </div>
       <div className="input-wrapper">
@@ -184,6 +204,10 @@ const SignUpModal: React.FC = () => {
           }
           value={password}
           onChange={onChangePassword}
+          validateMode
+          useValidation
+          isValid={!!password}
+          errorMessage="비밀번호를 입력하세요."
         />
       </div>
 
