@@ -13,10 +13,12 @@ import { dayList, monthList, yearList } from "../../lib/staticData";
 import Button from "../common/button";
 import { signupAPI } from "../../lib/api/auth";
 import { userActions } from "../../store/user";
+import { authActions } from "../../store/auth";
+import { commonActions } from "../../store/common";
+import useValidateMode from "../../hooks/useValidateMode";
 
 const Container = styled.form`
   width: 568px;
-  height: 614px;
   padding: 32px;
   background-color: white;
   z-index: 11;
@@ -69,7 +71,12 @@ const Container = styled.form`
   .sign-up-modal-submit-button-wrapper {
     margin-bottom: 16px;
     padding-bottom: 16px;
-    border-bottom: 1px solid ${palette.gray_eb};
+  }
+
+  .sign-up-modal-set-login {
+    color: ${palette.dark_cyan};
+    margin-left: 8px;
+    cursor: pointer;
   }
 `;
 
@@ -86,6 +93,7 @@ const SignUpModal: React.FC = () => {
   const [birthDay, setBirthDay] = useState<string | undefined>();
 
   const dispatch = useDispatch();
+  const { setValidateMode } = useValidateMode();
 
   /** 이메일 주소 변경시 */
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,12 +128,18 @@ const SignUpModal: React.FC = () => {
     setBirthDay(event.target.value);
   };
 
+  /**로그인 모달 변경하기 */
+  const changeToLoginModal = () => {
+    dispatch(authActions.setAuthMode("login"));
+  };
   /**회원가입 폼 제출하기 */
   const onSubmitSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setValidateMode(true);
     //NOTE:안되는데..
     //setValidteMode(true);
+    dispatch(commonActions.setValidateMode(true));
 
     if (!email || !lastname || !firstname || !password) {
       console.log("회원가입 api 호출 불가");
@@ -161,7 +175,6 @@ const SignUpModal: React.FC = () => {
           icon={<MailIcon />}
           value={email}
           onChange={onChangeEmail}
-          validateMode
           useValidation
           isValid={!!email}
           errorMessage="이메일이 필요합니다."
@@ -173,7 +186,6 @@ const SignUpModal: React.FC = () => {
           icon={<PersonIcon />}
           value={lastname}
           onChange={onChangeLastname}
-          validateMode
           useValidation
           isValid={!!lastname}
           errorMessage="이름을 입력하세요."
@@ -185,7 +197,6 @@ const SignUpModal: React.FC = () => {
           icon={<PersonIcon />}
           value={firstname}
           onChange={onChangeFirstname}
-          validateMode
           useValidation
           isValid={!!firstname}
           errorMessage="성을 입력하세요."
@@ -204,7 +215,6 @@ const SignUpModal: React.FC = () => {
           }
           value={password}
           onChange={onChangePassword}
-          validateMode
           useValidation
           isValid={!!password}
           errorMessage="비밀번호를 입력하세요."
@@ -246,6 +256,12 @@ const SignUpModal: React.FC = () => {
       <div className="sign-up-modal-submit-button-wrapper">
         <Button type="submit">가입하기</Button>
       </div>
+      <p>
+        이미 에어비앤비 계정이 있나요?
+        <span className="sign-up-modal-set-login" role="presentation" onClick={changeToLoginModal}>
+          로그인
+        </span>
+      </p>
     </Container>
   );
 };

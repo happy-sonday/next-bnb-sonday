@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import palette from "../../styles/palette";
 
@@ -67,19 +68,19 @@ const Container = styled.div<InputContainerProps>`
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element;
   isValid?: boolean;
-  validateMode?: boolean;
   useValidation?: boolean;
   errorMessage?: string;
 }
 
 const Input: React.FC<IProps> = ({
   icon,
-  validateMode,
+
   isValid = false,
   useValidation = true,
   errorMessage,
   ...props
 }) => {
+  const validateMode = useSelector((state: any) => state.common.validateMode);
   return (
     <Container iconExist={!!icon} isValid={isValid} useValidation={validateMode! && useValidation}>
       <input {...props} />
